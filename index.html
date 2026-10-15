@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A responsive, interactive demo of the Morrow Banking home dashboard."
+    />
+    <meta name="theme-color" content="#fff8ff" />
+    <title>Morrow Banking — Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-send" viewBox="0 0 24 24">
+        <path d="M4 12 20 4l-5.5 16-3.2-6.3L4 12Z" />
+        <path d="m11.3 13.7 4.5-4.5" />
+      </symbol>
+      <symbol id="icon-request" viewBox="0 0 24 24">
+        <path d="M12 4v15m0 0 5-5m-5 5-5-5" />
+        <path d="M5 20h14" />
+      </symbol>
+      <symbol id="icon-add" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14" />
+      </symbol>
+      <symbol id="icon-card" viewBox="0 0 24 24">
+        <rect x="3.5" y="5.5" width="17" height="13" rx="2.5" />
+        <path d="M4 10h16M7 14h3" />
+      </symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="m3.5 10 8.5-7 8.5 7v10.5h-6v-7h-5v7h-6V10Z" />
+      </symbol>
+      <symbol id="icon-insights" viewBox="0 0 24 24">
+        <path d="M4 19V5m0 14h16" />
+        <path d="m7 15 3.5-4 3 2 4.5-6" />
+        <path d="M17 7h1v1" />
+      </symbol>
+      <symbol id="icon-profile" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="3.5" />
+        <path d="M4.5 20c.8-3.5 3.3-5.5 7.5-5.5s6.7 2 7.5 5.5" />
+      </symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24">
+        <path d="m9 18 6-6-6-6" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M18 6 6 18" />
+      </symbol>
+    </svg>
+
+    <main class="dashboard-shell" aria-label="Morrow Banking dashboard">
+      <header class="dashboard-header">
+        <div class="greeting">
+          <p class="eyebrow">Good morning</p>
+          <h1>Maya</h1>
+        </div>
+        <button class="avatar" type="button" data-open-dialog="profile" aria-label="Open Maya's profile">
+          M
+        </button>
+      </header>
+
+      <div class="dashboard-grid">
+        <div class="dashboard-overview">
+          <section class="balance-card" aria-labelledby="balance-heading">
+            <p class="eyebrow balance-eyebrow" id="balance-heading">Total balance</p>
+            <p class="balance-amount" aria-label="18,420 dollars and 56 cents">$18,420.56</p>
+            <div class="balance-footer">
+              <span class="monthly-trend">+2.4% this month</span>
+              <button class="details-button" type="button" data-open-dialog="details">
+                Details
+                <svg class="icon details-chevron" aria-hidden="true"><use href="#icon-chevron" /></svg>
+              </button>
+            </div>
+          </section>
+
+          <section class="quick-actions" aria-labelledby="quick-actions-heading">
+            <h2 class="section-title" id="quick-actions-heading">Quick actions</h2>
+            <div class="action-list">
+              <button class="action-button" type="button" data-action="Send">
+                <span class="action-icon"><svg class="icon" aria-hidden="true"><use href="#icon-send" /></svg></span>
+                <span>Send</span>
+              </button>
+              <button class="action-button" type="button" data-action="Request">
+                <span class="action-icon"><svg class="icon" aria-hidden="true"><use href="#icon-request" /></svg></span>
+                <span>Request</span>
+              </button>
+              <button class="action-button" type="button" data-action="Add money">
+                <span class="action-icon"><svg class="icon" aria-hidden="true"><use href="#icon-add" /></svg></span>
+                <span>Add money</span>
+              </button>
+              <button class="action-button" type="button" data-action="Cards">
+                <span class="action-icon"><svg class="icon" aria-hidden="true"><use href="#icon-card" /></svg></span>
+                <span>Cards</span>
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <section class="activity-section" aria-labelledby="activity-heading">
+          <div class="activity-heading-row">
+            <h2 class="section-title activity-title" id="activity-heading">Recent activity</h2>
+            <button class="text-button" type="button" id="see-all-button" aria-expanded="false">
+              See all
+            </button>
+          </div>
+
+          <h3 class="activity-period">Today</h3>
+          <ul class="transaction-list" aria-label="Today's transactions">
+            <li class="transaction">
+              <span class="merchant-avatar" aria-hidden="true">W</span>
+              <span class="transaction-description">
+                <span class="merchant-name">Whole Foods Market</span>
+                <span class="transaction-category">Groceries</span>
+              </span>
+              <span class="transaction-amount">
+                <span>-$64.82</span>
+                <time datetime="10:42">10:42 AM</time>
+              </span>
+            </li>
+            <li class="transaction">
+              <span class="merchant-avatar" aria-hidden="true">B</span>
+              <span class="transaction-description">
+                <span class="merchant-name">Blue Bottle Coffee</span>
+                <span class="transaction-category">Dining</span>
+              </span>
+              <span class="transaction-amount">
+                <span>-$8.50</span>
+                <time datetime="09:18">9:18 AM</time>
+              </span>
+            </li>
+          </ul>
+
+          <h3 class="activity-period">Yesterday</h3>
+          <ul class="transaction-list" aria-label="Yesterday's transactions">
+            <li class="transaction">
+              <span class="merchant-avatar" aria-hidden="true">A</span>
+              <span class="transaction-description">
+                <span class="merchant-name">Acme Studio</span>
+                <span class="transaction-category">Income</span>
+              </span>
+              <span class="transaction-amount">
+                <span class="income-amount">+$4,200.00</span>
+                <time datetime="08:02">8:02 AM</time>
+              </span>
+            </li>
+            <li class="transaction">
+              <span class="merchant-avatar" aria-hidden="true">R</span>
+              <span class="transaction-description">
+                <span class="merchant-name">Monthly rent</span>
+                <span class="transaction-category">Housing</span>
+              </span>
+              <span class="transaction-amount">
+                <span>-$1,850.00</span>
+                <time datetime="2026-10-14">Yesterday</time>
+              </span>
+            </li>
+          </ul>
+
+          <ul class="transaction-list extra-transactions" id="extra-transactions" aria-label="Earlier transactions" hidden>
+            <li class="transaction">
+              <span class="merchant-avatar" aria-hidden="true">P</span>
+              <span class="transaction-description">
+                <span class="merchant-name">Parkside Market</span>
+                <span class="transaction-category">Shopping</span>
+              </span>
+              <span class="transaction-amount">
+                <span>-$32.14</span>
+                <time datetime="2026-10-13">Oct 13</time>
+              </span>
+            </li>
+            <li class="transaction">
+              <span class="merchant-avatar" aria-hidden="true">S</span>
+              <span class="transaction-description">
+                <span class="merchant-name">Streamline Music</span>
+                <span class="transaction-category">Subscriptions</span>
+              </span>
+              <span class="transaction-amount">
+                <span>-$10.99</span>
+                <time datetime="2026-10-12">Oct 12</time>
+              </span>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <nav class="bottom-navigation" aria-label="Main navigation">
+        <button class="navigation-item is-active" type="button" data-tab="Home" aria-current="page">
+          <span class="navigation-icon"><svg class="icon" aria-hidden="true"><use href="#icon-home" /></svg></span>
+          <span>Home</span>
+        </button>
+        <button class="navigation-item" type="button" data-tab="Cards">
+          <span class="navigation-icon"><svg class="icon" aria-hidden="true"><use href="#icon-card" /></svg></span>
+          <span>Cards</span>
+        </button>
+        <button class="navigation-item" type="button" data-tab="Insights">
+          <span class="navigation-icon"><svg class="icon" aria-hidden="true"><use href="#icon-insights" /></svg></span>
+          <span>Insights</span>
+        </button>
+        <button class="navigation-item" type="button" data-tab="Profile">
+          <span class="navigation-icon"><svg class="icon" aria-hidden="true"><use href="#icon-profile" /></svg></span>
+          <span>Profile</span>
+        </button>
+      </nav>
+    </main>
+
+    <dialog class="info-dialog" id="info-dialog" aria-labelledby="dialog-title">
+      <form method="dialog">
+        <button class="dialog-close" type="submit" aria-label="Close dialog">
+          <svg class="icon" aria-hidden="true"><use href="#icon-close" /></svg>
+        </button>
+      </form>
+      <p class="eyebrow dialog-eyebrow">Morrow Banking</p>
+      <h2 id="dialog-title">A little more detail</h2>
+      <p class="dialog-message" id="dialog-message"></p>
+      <button class="dialog-done" type="button" id="dialog-done">Got it</button>
+    </dialog>
+
+    <div class="live-region" id="live-region" role="status" aria-live="polite"></div>
+  </body>
+</html>
